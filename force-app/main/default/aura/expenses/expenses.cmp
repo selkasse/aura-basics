@@ -1,5 +1,6 @@
 <aura:component controller="ExpensesController">
     <aura:attribute name="expenses" type="Expense__c[]" />
+    <aura:attribute name="message" type="String" default="default message"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
     <aura:handler name="updateExpense" event="c:expensesItemUpdate" action="{!c.handleUpdateExpense}" />
     <aura:handler name="createExpense" event="c:expensesItemUpdate" action="{!c.handleCreateExpense}" />
@@ -24,6 +25,9 @@
     <lightning:layout>
         <lightning:layoutItem padding="around-small" size="6">
             <c:expenseForm />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small" size="6">
+            {!v.message}
         </lightning:layoutItem>
     </lightning:layout>
     <!-- / NEW EXPENSE FORM -->

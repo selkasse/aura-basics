@@ -7,6 +7,11 @@
         expenses.push(response.getReturnValue());
         component.set("v.expenses", expenses);
 
+        component.set(
+          "v.message",
+          `Nice! You saved Expense: ${expenses[expenses.length - 1].Name}`
+        );
+
         let clearEvent = $A.get("e.c:clearExpenseFormEvent");
         clearEvent.fire();
       }
@@ -15,6 +20,7 @@
 
   updateExpense: function (component, expense) {
     this.saveExpense(component, expense);
+    component.set("v.message", `You updated ${expense.Name}!`);
   },
 
   saveExpense: function (component, expense, callback) {
