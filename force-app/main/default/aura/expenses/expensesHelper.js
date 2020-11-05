@@ -1,11 +1,14 @@
 ({
-  createExpense: function (component, expense) {
+  createExpense: function (component, event, expense) {
     this.saveExpense(component, expense, function (response) {
       var state = response.getState();
       if (state === "SUCCESS") {
         var expenses = component.get("v.expenses");
         expenses.push(response.getReturnValue());
         component.set("v.expenses", expenses);
+
+        let clearEvent = $A.get("e.c:clearExpenseFormEvent");
+        clearEvent.fire();
       }
     });
   },

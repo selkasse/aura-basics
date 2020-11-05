@@ -6,6 +6,9 @@
                     'Date__c': '',
                     'Reimbursed__c': false }" />
   <aura:registerEvent name="createExpense" type="c:expensesItemUpdate" />
+  <aura:handler event="c:clearExpenseFormEvent" action="{!c.handleClearForm}" />
+  <!-- name="clearForm" includeFacets="true" phase="capture" -->
+
   <!-- CREATE NEW EXPENSE -->
   <div aria-labelledby="newexpenseform">
     <!-- BOXED AREA -->

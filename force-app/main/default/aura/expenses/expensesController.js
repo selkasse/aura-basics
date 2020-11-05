@@ -1,6 +1,7 @@
 ({
   //Load Expenses from Salesforce
   doInit: function (component, event, helper) {
+    console.log("in doInit");
     //create the Action
     var action = component.get("c.getExpenses");
     //add a callback fron when response is received
@@ -24,6 +25,12 @@
 
   handleCreateExpense: function (component, event, helper) {
     var newExpense = event.getParam("expense");
-    helper.createExpense(component, newExpense);
+    helper.createExpense(component, event, newExpense);
   }
+  //   expensesChange: function (component, event) {
+  //     console.log("in expensesChange");
+  //     let clearEvent = component.getEvent("clearForm");
+
+  //     clearEvent.fire();
+  //   }
 });

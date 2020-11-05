@@ -3,6 +3,8 @@
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
     <aura:handler name="updateExpense" event="c:expensesItemUpdate" action="{!c.handleUpdateExpense}" />
     <aura:handler name="createExpense" event="c:expensesItemUpdate" action="{!c.handleCreateExpense}" />
+    <!-- <aura:handler name="change" value="{!v.expenses}" action="{!c.expensesChange}" /> -->
+    <aura:registerEvent name="clearForm" type="c:clearExpenseFormEvent" />
 
 
     <!-- PAGE HEADER -->

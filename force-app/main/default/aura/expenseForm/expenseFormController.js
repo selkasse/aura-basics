@@ -14,5 +14,16 @@
       console.log("Create expense: " + JSON.stringify(newExpense));
       helper.createExpense(component, newExpense);
     }
+  },
+  handleClearForm: function (component, event, helper) {
+    console.log("in handleClearForm");
+    component.set("v.newExpense", {
+      sobjectType: "Expense__c",
+      Name: "",
+      Amount__c: 0,
+      Client__c: "",
+      Date__c: "",
+      Reimbursed__c: false
+    });
   }
 });
