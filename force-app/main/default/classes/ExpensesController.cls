@@ -23,7 +23,13 @@ public with sharing class ExpensesController {
     @AuraEnabled
     public static Expense__c saveExpense(Expense__c expense) {
         // Perform isUpdateable() checking first, then
-        upsert expense;
+        try{
+
+            upsert expense;
+        }
+        catch(Exception e){
+            throw new AuraHandledException('something went wrong: ' + e);
+        }
         return expense;
     }
 }
